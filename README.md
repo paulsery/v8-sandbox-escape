@@ -21,14 +21,20 @@ export PATH=~/depot_tools:$PATH
 # get source
 
 cd ~
+
 fetch v8
+
 mv v8 v8-11-4-0
+
 cd v8-11-4-0
+
 git checkout f7a3499f6d7e50b227a17d2bbd96e4b59a261d3c
+
 gclient sync
 cd v8/src
 
 # configure for build (args.gn => ~/v8/out/x64.release/args.gn)
+
 gn args out/x64.release
 
         is_component_build = false
@@ -44,4 +50,5 @@ gn args out/x64.release
         v8_expose_memory_corruption_api = true
 
 # build
+
 autoninja -C out/x64.release
