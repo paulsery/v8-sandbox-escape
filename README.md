@@ -4,16 +4,22 @@
 
 
 # system prep
+
 sudo apt update
+
 sudo apt -y upgrade
+
 sudo apt -y install git build-essential pkg-config
 
 # get google tools
+
 git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
+
 export PATH=~/depot_tools:$PATH
 
 
 # get source
+
 cd ~
 fetch v8
 mv v8 v8-11-4-0
