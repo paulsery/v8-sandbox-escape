@@ -1,20 +1,19 @@
-#
-# https://github.com/theori-io/v8-sbx-bypass-wasm/tree/main
-#
+
+Code from https://github.com/theori-io/v8-sbx-bypass-wasm/tree/main
 
 
-# system prep
+system prep
 
         sudo apt update
         sudo apt -y upgrade
         sudo apt -y install git build-essential pkg-config
 
-# get google tools
+get google tools
 
         git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
         export PATH=~/depot_tools:$PATH
 
-# get source
+get source
 
         cd ~
         fetch v8
@@ -24,22 +23,36 @@
         gclient sync
         cd v8/src
 
-# configure for build (args.gn => ~/v8/out/x64.release/args.gn)
+configure for build (args.gn => ~/v8/out/x64.release/args.gn)
+        gn args out/x64.release
+        
+                is_component_build = false
+                is_debug = false
+                target_cpu = "x64"
+                v8_enable_sandbox = true
+                use_goma = false
+                v8_enable_backtrace = true
+                v8_enable_disassembler = true
+                v8_enable_object_print = true
+                v8_enable_verify_heap = true
+                dcheck_always_on = false
+                v8_expose_memory_corruption_api = true
 
-gn args out/x64.release
+build
+        autoninja -C out/x64.release
 
-        is_component_build = false
-        is_debug = false
-        target_cpu = "x64"
-        v8_enable_sandbox = true
-        use_goma = false
-        v8_enable_backtrace = true
-        v8_enable_disassembler = true
-        v8_enable_object_print = true
-        v8_enable_verify_heap = true
-        dcheck_always_on = false
-        v8_expose_memory_corruption_api = true
+Run
+        ~/v8-11-4-0/out/x64-release/d8 e[+] instance_addr = 0x19c3d8
 
-# build
+                [+] tbl_addr = 0x4dc04
+                [+] exported_func_addr = 0x19c55c
+                [+] imported_function_targets = 0x4def1
+                [+] rwx = 0x39e47ef46700
+                [+] indirect_function_tables = 0x4df4d
+                [+] indirect_function_table = 0x4df69
+                $ 
 
-autoninja -C out/x64.release
+Result
+
+
+        
