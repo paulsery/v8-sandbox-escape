@@ -40,10 +40,14 @@ configure for build
                 v8_expose_memory_corruption_api = true
 
 build
+
         autoninja -C out/x64.release
 
 Run
+
         ~/v8-11-4-0/out/x64-release/d8 e[+] instance_addr = 0x19c3d8
+
+Result
 
                 [+] tbl_addr = 0x4dc04
                 [+] exported_func_addr = 0x19c55c
@@ -53,7 +57,7 @@ Run
                 [+] indirect_function_table = 0x4df69
                 $ 
 
-Result
+
 
 
         
