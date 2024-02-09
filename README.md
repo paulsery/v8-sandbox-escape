@@ -1,6 +1,5 @@
 #
 # https://github.com/theori-io/v8-sbx-bypass-wasm/tree/main
-# https://blog.theori.io/a-deep-dive-into-v8-sandbox-escape-technique-used-in-in-the-wild-exploit-d5dcf30681d4
 #
 
 
@@ -17,9 +16,11 @@ export PATH=~/depot_tools:$PATH
 # get source
 cd ~
 fetch v8
-cd v8
+mv v8 v8-11-4-0
+cd v8-11-4-0
 git checkout f7a3499f6d7e50b227a17d2bbd96e4b59a261d3c
 gclient sync
+cd v8/src
 
 # configure for build (args.gn => ~/v8/out/x64.release/args.gn)
 gn args out/x64.release
@@ -34,6 +35,7 @@ gn args out/x64.release
         v8_enable_object_print = true
         v8_enable_verify_heap = true
         dcheck_always_on = false
+        v8_expose_memory_corruption_api = true
 
 # build
 autoninja -C out/x64.release
