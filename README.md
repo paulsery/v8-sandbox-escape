@@ -23,7 +23,8 @@ get source
         gclient sync
         cd v8/src
 
-configure for build (args.gn => ~/v8/out/x64.release/args.gn)
+configure for build
+
         gn args out/x64.release
         
                 is_component_build = false
