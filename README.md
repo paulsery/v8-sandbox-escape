@@ -1,6 +1,7 @@
 
-Code from https://github.com/theori-io/v8-sbx-bypass-wasm/tree/main
+Javascript exploit code: https://github.com/theori-io/v8-sbx-bypass-wasm/tree/main
 
+v8 build instructions: https://chromium.googlesource.com/external/github.com/v8/v8.wiki/+/8c0be5e888bda68437f15e2ea9e317fd6229a5e3/Building-with-GN.md
 
 system prep
 
