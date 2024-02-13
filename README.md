@@ -1,3 +1,4 @@
+A Deep Dive into V8 Sandbox Escape Technique Used in In-The-Wild Exploit https://blog.theori.io/a-deep-dive-into-v8-sandbox-escape-technique-used-in-in-the-wild-exploit-d5dcf30681d4
 
 Javascript exploit code: https://github.com/theori-io/v8-sbx-bypass-wasm/tree/main
 
